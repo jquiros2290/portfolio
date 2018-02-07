@@ -1,0 +1,208 @@
+<div class="blurred-container">
+  <div class="img-src" style="background-image: url('<%= asset_path("mac.jpeg") %>')"></div>
+</div>
+</div><!--  end navbar -->
+<% if flash[:notice] %>
+<div class="alert alert-success">
+  <%= flash[:notice] %>
+</div>
+<% end %>
+<% if flash[:alert] %>
+<div class="alert alert-danger">
+  <% flash[:alert].each do |alert| %>
+  <p><%= alert%></p>
+  <% end %>
+</div>
+<% end %>
+</div> <!-- end menu-dropdown -->
+<div class="main">
+  <a id="about_me"></a>
+  <div class="container tim-container" style="max-width:2000px; padding-top:50px; padding-bottom:100px">
+    <h1 class="text-center">About Me<br><small class="subtitle">My name is Justin Quiros and thank you for visiting!</small></h1>
+    <p class="text-center">I am an aspiring full stack developer and current resident at <a href="http://www.codingdojo.com/dallas" target="_blank">Coding Dojo Dallas.</a>  Prior to the Dojo I spent over 8 years in the Supply Chain and Logistics industry, but my passion for emerging and forever evolving technology fueled my career path transition.</p>
+    <br>
+    <p class="text-center">
+      I enjoy the fact that it is impossible to know everything there is to know about development. (Even as a seasoned veteran) With that being said, I enjoy learning and picking up on new technologies and coding languages.  Thus far I have received my certification for Python and Ruby on Rails.  In January of 2018 I will be focusing on the MEAN stack where we will cover Javascript, MongoDB, Angular, Node.js, and Express.js.
+    </p>
+    <p class="text-center">
+      Some of the most valuable lessons I learned during my professional career was the importance of continous improvement and being about to adapt to change.  I believe you must always be improving, whether it be yourself, your work, the process, the people around  you, etc. I also believe that you must be willing and open to change.  Change will never stop.  The more willing you are to adapt, the more approachable you will become, and the more successful you will be.
+    </p>
+    <!--     end extras -->
+  </div>
+  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
+      <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
+    </ol>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active">
+        <%= image_tag("cpu.jpeg", class: "carpic") %>
+      </div>
+      <div class="item">
+        <%= image_tag("desk.jpg", class: "carpic") %>
+      </div>
+      <div class="item">
+        <%= image_tag("code.png", class: "carpic") %>
+      </div>
+    </div>
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+      <span class="fa fa-angle-left"></span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+      <span class="fa fa-angle-right"></span>
+    </a>
+  </div>
+  <a id="portfolio"></a>
+  <div class="container tim-container proj" align="center">
+    <div class="row" style="padding-bottom: 50px">
+      <div class="col-sm-12">
+        <h1>My Personal Projects</h1>
+      </div>
+    </div>
+    <!-- </div> -->
+    <!-- <div class="container"> -->
+    <div class="row">
+      <div class="col col-sm-4 port" align="center">
+        <h3>Final Mile
+        <br>
+        <small><font color="black">Final Mile was built with Ruby on Rails. In this project I wanted to solidify my understanding of different relational mapping and I believe this was a good excericse to demonstrate that.</font></small>
+        </h3>
+        <a href="http://18.219.54.27/" target="_blank"><%= image_tag("finalmilesmall.jpeg", class: "portpic") %></a>
+      </div>
+      <div class="col col-sm-4 port" align="center">
+        <h3>Wedding Landing Page
+        <br>
+        <small><font color="black">I am building this page to help facilitate the communication between the Mrs., I, and our wedding guests. This is my first project that I will have had actual users.</font></small>
+        </h3>
+        <%= image_tag("FJ0A5532_preview.jpeg", class: "portpic") %>
+      </div>
+      <div class="col col-sm-4 port" align="center">
+        <h3>Personal Blog
+        <br>
+        <small><font color="black">I will be creating my very own blog where I will update you all on my progression as a developer, a creater, and as a person. Stayed tuned. :) #strengththroughstruggle</font></small>
+        </h3>
+        <%= image_tag("coming.png", class: "portpic") %>
+      </div>
+    </div>
+  </div>
+  <div class="container tim-container">
+    <div class="row" style="padding-bottom: 50px">
+      <div class="col-sm-12 text-center">
+        <h2>Current Location: Dallas, TX</h2>
+      </div>
+    </div>
+    <!-- <div class="col-md-12" style="max-width:100%; padding-top:600px; padding-bottom:100px"> -->
+    <div class="row">
+      <div class="col-md-12" id="map"></div>
+      <script>
+      function initMap() {
+      var uluru = {lat: 32.780159, lng: -96.8015891};
+      var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 13,
+      center: uluru
+      });
+      var marker = new google.maps.Marker({
+      position: uluru,
+      map: map
+      });
+      }
+      </script>
+      <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCu01a-EiR91L1VpdwRn_bU5Hrm_qXPwWw&callback=initMap">
+      </script>
+    </div>
+  </div>
+  <div class="container tim-container" style="padding-top: 50px;">
+    <div class="row">
+<!--       <div class="col-md-4" style="margin: auto;">
+        <%= image_tag("convo", class: "convo") %>
+      </div> -->
+      <div class="col-md-6">
+        <a id="contact"></a>
+        <!-- <div align="center"> -->
+        <h3>
+        Want to get in touch?
+        <br>
+        <small>Shoot me a note!</small></h3>
+        <form action="<%= contact_path %>" method="post">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+          <table>
+            <tr>
+              <input type="text" name="contact[name]" placeholder="Name" class="form-control" />
+            </tr>
+            <br>
+            <tr>
+              <input type="email" name="contact[email]" placeholder="Email Address" class="form-control" />
+            </tr>
+            <br>
+            <tr>
+              <textarea class="form-control" placeholder="Message" name="contact[message]" style="height: 100px; overflow: scroll"></textarea>
+            </tr>
+          </table>
+          <br>
+          <button type="submit" name="submit" class="btn btn-default">Send Message</button>
+        </form>
+        <!-- </div> -->
+      </div>
+      <div class="col-md-6 ">
+        <h3 class="text-center"><a id=""></a>Technologies I am
+        familiar with<br></h3>
+        <div class="dollartimes-pb" style="font-family: palatino; width: 350px; margin: auto; clear:both;">
+          <div class="dollartimes-pb-title" style="font-size:16px; overflow: hidden;">Python</div>
+          <div class="dollartimes-pb-frame" title="65% / 65% towards goal" style="border-radius: 5px; border: 1px solid #000; height: 30px; margin: 2px 0 1px;">
+            <div class="dollartimes-pb-fill" style="width:65%; height: 100%; margin-top: 0px; background: repeating-linear-gradient(-45deg, rgba(255,153,0,1), rgba(255,153,0,1) 8px, rgba(255,153,0,0.8) 8px, rgba(255,153,0,0.8) 16px);">&nbsp;
+            </div>
+          </div>
+          <span class="dollartimes-pb-caption" style="float: left; font-size: 12px;">0%</span>
+          <span class="dollartimes-pb-caption" style="float: right; font-size: 12px;">100%</span>
+        </div>
+        <div class="dollartimes-pb" style="font-family: palatino; width: 350px; margin: auto; clear:both;">
+          <div class="dollartimes-pb-title" style="font-size:16px; overflow: hidden;">Ruby on Rails</div>
+          <div class="dollartimes-pb-frame" title="75% / 75% towards goal" style="border-radius: 5px; border: 1px solid #000; height: 30px; margin: 2px 0 1px;">
+            <div class="dollartimes-pb-fill" style="width:75%; height: 100%; margin-top: 0px; background: repeating-linear-gradient(-45deg, rgba(255,153,0,1), rgba(255,153,0,1) 8px, rgba(255,153,0,0.8) 8px, rgba(255,153,0,0.8) 16px);">&nbsp;
+            </div>
+          </div>
+          <span class="dollartimes-pb-caption" style="float: left; font-size: 12px;">0%</span>
+          <span class="dollartimes-pb-caption" style="float: right; font-size: 12px;">100%</span>
+        </div>
+        <div class="dollartimes-pb" style="font-family: palatino; width: 350px; margin: auto; clear:both;">
+          <div class="dollartimes-pb-title" style="font-size:16px; overflow: hidden;">MEAN</div>
+            <div class="dollartimes-pb-frame" title="70% / 70% towards goal" style="border-radius: 5px; border: 1px solid #000; height: 30px; margin: 2px 0 1px;">
+              <div class="dollartimes-pb-fill" style="width:70%; height: 100%; margin-top: 0px; background: repeating-linear-gradient(-45deg, rgba(255,153,0,1), rgba(255,153,0,1) 8px, rgba(255,153,0,0.8) 8px, rgba(255,153,0,0.8) 16px);">&nbsp;
+              </div>
+            </div>
+            <span class="dollartimes-pb-caption" style="float: left; font-size: 12px;">0%</span>
+            <span class="dollartimes-pb-caption" style="float: right; font-size: 12px;">100%</span>
+          </div>
+        <div class="dollartimes-pb" style="font-family: palatino; width: 350px; margin: auto; clear:both;">
+          <div class="dollartimes-pb-title" style="font-size:16px; overflow: hidden;">HTML & CSS</div>
+            <div class="dollartimes-pb-frame" title="80% / 80% towards goal" style="border-radius: 5px; border: 1px solid #000; height: 30px; margin: 2px 0 1px;">
+              <div class="dollartimes-pb-fill" style="width:80%; height: 100%; margin-top: 0px; background: repeating-linear-gradient(-45deg, rgba(255,153,0,1), rgba(255,153,0,1) 8px, rgba(255,153,0,0.8) 8px, rgba(255,153,0,0.8) 16px);">&nbsp;
+              </div>
+            </div>
+            <span class="dollartimes-pb-caption" style="float: left; font-size: 12px;">0%</span>
+            <span class="dollartimes-pb-caption" style="float: right; font-size: 12px;">100%</span>
+          </div>
+        </div>
+    </div>
+    <!--     end extras -->
+  </div>
+  
+  <div class="space">
+  </div>
+  <div class="container-fluid" id="footer">
+    <div class="row">
+      <p class="text-center"><font color="white">This page was created by Justin Quiros</font><br>
+        <a href="https://www.linkedin.com/in/justin-quiros/" class="fa fa-linkedin" target="_blank" aria-hidden="true"></a>
+        <a href="https://github.com/jquiros2290" target="_blank" class="fa fa-github" aria-hidden="true"></a>
+      </p>
+    </div>
+  </div>
+  
+  <!-- end container -->
+</div>
+<!-- end main -->
