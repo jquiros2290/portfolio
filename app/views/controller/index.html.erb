@@ -1,5 +1,29 @@
 <div class="blurred-container">
-  <div class="img-src" style="background-image: url('<%= asset_path("mac.jpeg") %>')"></div>
+  
+    <div class="scroll">I am <div id="magic"></div></div>
+    
+  <script>
+    var words = ["fearless", "motivated", "a self-starter", "eager to learn", "a developer", "an innovator"],
+      el = document.getElementById('magic'),
+      word_counter = 0,
+      character_counter = 0;
+    function updateText(){
+      var nextChar = words[word_counter][character_counter++];
+      if(nextChar == " ") {nextChar = "&nbsp;";}
+      el.innerHTML = el.innerHTML+ nextChar;
+      if(character_counter == words[word_counter].length+1)
+      {
+        word_counter++;   //choose a different word
+        character_counter = 0;  //start over with the first character of the word
+        el.innerHTML = '';  //set the html to be blank
+        //if we're displaying the last word, go back to the first word
+        if(word_counter == words.length)
+          word_counter = 0;
+      }
+    }
+    setInterval(updateText, 350);
+  </script>
+
 </div>
 </div><!--  end navbar -->
 <% if flash[:notice] %>
@@ -19,13 +43,13 @@
   <a id="about_me"></a>
   <div class="container tim-container" style="max-width:2000px; padding-top:50px; padding-bottom:100px">
     <h1 class="text-center">About Me<br><small class="subtitle">My name is Justin Quiros and thank you for visiting!</small></h1>
-    <p class="text-center">I am an aspiring full stack developer and current resident at <a href="http://www.codingdojo.com/dallas" target="_blank">Coding Dojo Dallas.</a>  Prior to the Dojo I spent over 8 years in the Supply Chain and Logistics industry, but my passion for emerging and forever evolving technology fueled my career path transition.</p>
+    <p class="text-center">I am an aspiring full stack developer and a recent graduate of the <a href="http://www.codingdojo.com/dallas" target="_blank">Coding Dojo Dallas.</a>  Prior to the Dojo I spent close to 9 years in the Supply Chain and Logistics industry, but my passion for emerging and forever evolving technology fueled my career path transition.</p>
     <br>
     <p class="text-center">
-      I enjoy the fact that it is impossible to know everything there is to know about development. (Even as a seasoned veteran) With that being said, I enjoy learning and picking up on new technologies and coding languages.  Thus far I have received my certification for Python and Ruby on Rails.  In January of 2018 I will be focusing on the MEAN stack where we will cover Javascript, MongoDB, Angular, Node.js, and Express.js.
+      Some of the most valuable lessons I learned during my professional career was the importance of continous improvement and being about to adapt to change.  I believe you must always be improving, whether it be yourself, your work, the process, the people around  you, etc. I also believe that you must be willing and open to change.  Change will never stop.  The more willing you are to adapt, the more approachable you will become, and the more successful you will be.
     </p>
     <p class="text-center">
-      Some of the most valuable lessons I learned during my professional career was the importance of continous improvement and being about to adapt to change.  I believe you must always be improving, whether it be yourself, your work, the process, the people around  you, etc. I also believe that you must be willing and open to change.  Change will never stop.  The more willing you are to adapt, the more approachable you will become, and the more successful you will be.
+      I believe software development is a fascinating and powerful skill and I enjoy learning and picking up on new technologies and coding languages.  I have received my certification for MEAN, Ruby on Rails, and Python.  I would love the opportunity to work with a team of fun and creative individuals that share the same passion as I do, so we can turn great ideas into reality, and provide solutions to any problem. 
     </p>
     <!--     end extras -->
   </div>
@@ -45,7 +69,7 @@
         <%= image_tag("desk.jpg", class: "carpic") %>
       </div>
       <div class="item">
-        <%= image_tag("code.png", class: "carpic") %>
+        <%= image_tag("mac.jpeg", class: "carpic") %>
       </div>
     </div>
     <!-- Controls -->
@@ -66,26 +90,26 @@
     <!-- </div> -->
     <!-- <div class="container"> -->
     <div class="row">
-      <div class="col col-sm-4 port" align="center">
+      <div class="col-lg-4 col-md-6 col-sm-6 port" align="center">
         <h3>Final Mile
         <br>
         <small><font color="black">Final Mile was built with Ruby on Rails. In this project I wanted to solidify my understanding of different relational mapping and I believe this was a good excericse to demonstrate that.</font></small>
         </h3>
         <a href="http://18.219.54.27/" target="_blank"><%= image_tag("finalmilesmall.jpeg", class: "portpic") %></a>
       </div>
-      <div class="col col-sm-4 port" align="center">
+      <div class="col-lg-4 col-md-6 col-sm-6 port" align="center">
         <h3>Wedding Landing Page
         <br>
         <small><font color="black">I am building this page to help facilitate the communication between the Mrs., I, and our wedding guests. This is my first project that I will have had actual users.</font></small>
         </h3>
-        <%= image_tag("FJ0A5532_preview.jpeg", class: "portpic") %>
+        <a href="http://www.steffiandjustin.com" target="_blank"><%= image_tag("FJ0A5532_preview.jpeg", class: "portpic") %></a>
       </div>
-      <div class="col col-sm-4 port" align="center">
-        <h3>Personal Blog
+      <div class="col-lg-4 col-md-6 col-sm-6 port" align="center">
+        <h3>Book Reviewer
         <br>
-        <small><font color="black">I will be creating my very own blog where I will update you all on my progression as a developer, a creater, and as a person. Stayed tuned. :) #strengththroughstruggle</font></small>
+        <small><font color="black">Book Reviewer was built with Python.  In this application, you are able to create and view reviews on books that you have and want to read. Go and share a review!</font></small>
         </h3>
-        <%= image_tag("coming.png", class: "portpic") %>
+        <a href="http://13.59.141.206/" target="_blank"><%= image_tag("read.jpg", class: "portpic") %></a>
       </div>
     </div>
   </div>

@@ -15,6 +15,23 @@
  *= require_self
  */
 
+.scroll {
+	background-color: black;
+	font-family: monospace;
+	color: white;
+	font-size:50px;
+	text-align: center;
+	padding-top:270px;
+	height: 600px;
+	width: 100%;
+}
+#magic{
+	color: #777;
+	border-right: 1px solid #777;
+	padding-right: 7px;
+	display: inline;
+}
+
 .tech {
 	max-width: 800px;
     margin: auto;
